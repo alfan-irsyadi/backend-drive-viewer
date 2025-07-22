@@ -74,5 +74,5 @@ app.get("/api/folder-name", async (req, res) => {
 
 
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3000;;
 app.listen(PORT, () => console.log(`Drive API proxy running on http://localhost:${PORT}`));

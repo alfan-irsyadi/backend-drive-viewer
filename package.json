@@ -1,9 +1,15 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "proxy.js",
+  "main": "driveApi.js",
   "scripts": {
+        "start": "node driveApi.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "googleapis": "^153.0.0"
   },
   "keywords": [],
   "author": "",
