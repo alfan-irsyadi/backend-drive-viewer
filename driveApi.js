@@ -5,8 +5,18 @@ const app = express();
 
 app.use(cors());
 
+const serviceAccountBase64 = process.env.GOOGLE_SERVICE;
+
+if (!serviceAccountBase64) {
+  throw new Error("GOOGLE_SERVICE_JSON is not defined.");
+}
+
+const serviceAccount = JSON.parse(
+  Buffer.from(serviceAccountBase64, 'base64').toString('utf8')
+);
+
 const auth = new google.auth.GoogleAuth({
-  keyFile: "service-account.json", // Path to your service account key
+  credentials: serviceAccount,
   scopes: ["https://www.googleapis.com/auth/drive.readonly"],
 });
 const drive = google.drive({ version: "v3", auth });
