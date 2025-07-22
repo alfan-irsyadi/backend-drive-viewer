@@ -1,0 +1,4 @@
+node_modules
+encoded.txt
+service-account.json
+.env
